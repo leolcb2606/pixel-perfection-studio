@@ -1,5 +1,8 @@
-import dashboardImage from "@/assets/platform-dashboard.jpg";
-import { Cpu, Route, Video, BarChart3, Shield, Gauge } from "lucide-react";
+import { Play, Cpu, Route, Video, BarChart3, Shield, Gauge } from "lucide-react";
+import { useState } from "react";
+
+// Placeholder for the institutional video URL — replace with the real one
+const VIDEO_URL = "";
 
 const features = [
   {
@@ -35,18 +38,40 @@ const features = [
 ];
 
 const SolutionsSection = () => {
+  const [playing, setPlaying] = useState(false);
+
   return (
     <section className="py-20 md:py-28 bg-muted/50" id="solucoes">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: image */}
+          {/* Left: video */}
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-elevated">
-              <img
-                src={dashboardImage}
-                alt="Plataforma ZUQ"
-                className="w-full h-auto"
-              />
+            <div className="rounded-2xl overflow-hidden shadow-elevated aspect-video bg-primary">
+              {playing && VIDEO_URL ? (
+                <iframe
+                  src={VIDEO_URL}
+                  className="w-full h-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Vídeo Institucional ZUQ"
+                />
+              ) : (
+                <button
+                  onClick={() => setPlaying(true)}
+                  className="w-full h-full flex flex-col items-center justify-center gap-4 bg-hero group cursor-pointer relative"
+                >
+                  {/* Decorative circles */}
+                  <div className="absolute w-48 h-48 rounded-full border border-sky/20 animate-float" />
+                  <div className="absolute w-32 h-32 rounded-full border border-sky/10" style={{ animationDelay: '1s' }} />
+
+                  <div className="w-20 h-20 rounded-full bg-cta-gradient flex items-center justify-center shadow-cta group-hover:scale-110 transition-transform z-10">
+                    <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
+                  </div>
+                  <span className="text-primary-foreground/80 text-sm font-medium font-display z-10">
+                    Assistir Vídeo Institucional
+                  </span>
+                </button>
+              )}
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-cta-gradient opacity-20 blur-2xl" />
           </div>
