@@ -1,4 +1,4 @@
-import zuqLogo from "@/assets/zuq-logo.png";
+import zuqLogo from "@/assets/logoZUQ.png";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -16,7 +16,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-navy-light/20">
       <div className="container flex items-center justify-between h-16">
-        <img src={zuqLogo} alt="ZUQ" className="h-8 brightness-0 invert" />
+        <img 
+          src={zuqLogo} 
+          alt="ZUQ" 
+          className="h-12 w-auto object-contain [filter:drop-shadow(0_0_2px_#fff)_drop-shadow(0_0_8px_#fff)]" 
+        />
         
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (

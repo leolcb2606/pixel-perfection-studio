@@ -1,4 +1,4 @@
-import zuqLogo from "@/assets/zuq-logo.png";
+import zuqLogo from "@/assets/logoZUQ.png";
 
 const Footer = () => {
   return (
@@ -6,7 +6,11 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <img src={zuqLogo} alt="ZUQ" className="h-6 brightness-0 invert" />
+            <img 
+              src={zuqLogo} 
+              alt="ZUQ" 
+              className="h-10 w-auto object-contain [filter:drop-shadow(0_0_2px_#fff)_drop-shadow(0_0_8px_#fff)]" 
+            />
             <span className="text-sm text-primary-foreground/60">
               © {new Date().getFullYear()} ZUQ. Todos os direitos reservados.
             </span>
